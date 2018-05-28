@@ -1,0 +1,102 @@
+﻿% !Mode::"TeX:UTF-8" % for pdfLaTeX
+\documentclass[a4paper,zihao=5,openany,oneside,sub4section]{ctexbook}
+\special{papersize=210mm,297mm}
+\usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm,headsep=1.5cm,footskip=1.75cm]{geometry}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}	% 调用公式宏包
+%\usepackage{bookmark}
+\usepackage{times}			% 使用 Times New Roman 字体
+\usepackage{color}			% 支持彩色
+%\usepackage{verbatim}
+\usepackage{makeidx}		% 建立索引宏包
+\usepackage{hyperref}
+\hypersetup{pdfstartview=FitH,colorlinks=true,CJKbookmarks=true,linkcolor=black}
+\usepackage{indentfirst}	% 设置段落缩进.如果没有,section后面正文则顶格显示.不缩进.
+\linespread{1.5}			% 以將行距加大為1.5倍
+
+\usepackage{afterpage}
+\usepackage{xcolor}
+\definecolor{coverbackground}{HTML}{FFD700}
+
+\ctexset{
+    section = {format = \raggedright\Large\bfseries }
+}
+
+%\usepackage{hyperref}
+%\hypersetup{unicode}
+
+%\usepackage{graphicx}		% 调用插图宏包
+%\usepackage{subfigure}
+
+%\pagestyle{headings}
+
+%\usepackage{tocloft}
+
+\begin{document}
+
+\title{机器人学笔记}
+\author{吴浩苗}
+\date{2018.6-2018.12}
+
+\frontmatter
+\thispagestyle{empty} % 当前页不显示页码
+\begin{titlepage}
+	%\pagecolor{coverbackground}
+	\centering
+	\begin{center}
+		\vspace*{6cm}
+		{\par \Huge {\heiti 机器人学笔记 } }
+		\vspace{1cm}
+		{\par \LARGE {\lishu  吴浩苗} }
+		\vspace{12cm}
+        {\par \large 2018.6}
+	\end{center}
+\end{titlepage}
+\afterpage{\nopagecolor}
+
+\setcounter{page}{1}
+\pagenumbering{Roman}		%罗马数字页码
+\tableofcontents			% 目录
+
+\mainmatter %表示文章的正文部分，在生成目录后将从第一页开始
+
+%\setlength{\cftchapindent}{3pt}
+%\setlength{\cftsecindent}{3pt}
+%\setlength{\cftsubsecindent}{3pt}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\part{数学导论}
+\cleardoublepage
+“数学，是上帝用来书写宇宙的语言。”——牛顿
+	\chapter{矢量空间}
+		\section{标量\&矢量}
+            \subsection{点\&空间}
+                \subsubsection{点}
+“数学，是上帝用来书写宇宙的语言。”——牛顿
+{\par 一切控制的基础是数学描述，所以构建机器人及其控制的核心是数学建模。}
+	\chapter{刚体}
+		\section{选择题}
+	\chapter{相对论}
+		\section{选择题}
+\part{建模\&控制}
+	\chapter{数学建模}
+		\section{选择题}
+	\chapter{系统控制}
+		\section{选择题}
+	\chapter{实践\&应用}
+		\section{选择题}
+
+\backmatter
+% bibliography, glossary and index would go here.
+\printindex %打印索引
+
+%\newpage
+%\include{cover}			%调入封面子源文件cover.tex
+%\pagenumbering{Roman}		%罗马数字页码
+%\include{abstract}			%调入摘要子源文件abstract.tex
+%\pagenumbering{arabic}		%阿拉伯数字页码
+%\include{contents}			%调入创建目录子源文件contents.tex
+%\pagenumbering{arabic}
+
+%\makeindex %建立关键词的索引
+
+\end{document} 

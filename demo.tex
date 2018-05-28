@@ -1,0 +1,91 @@
+% !Mode::"TeX:UTF-8"
+\documentclass[UTF8]{article} % for pdfLaTeX
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% \usepackage{ctex}
+\usepackage{CJKutf8} 
+\usepackage{hyperref}
+\hypersetup{unicode} 
+% \usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\author{吴浩苗}
+\title{中文书名}
+\begin{document}
+    \begin{CJK}{UTF8}{gkai} 
+    \maketitle
+    Wow! This is my FIRST \LaTeX{} Article!
+
+    \section{1st 中文节}
+     \end{CJK}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2cm]{face.pdf}
+  \caption{tt}
+  \label{fig1}
+\end{figure}
+    Hello World!
+    \subsection{First subsection}
+    I like the first subsection.
+    1+1=2, $\theta \in \Re, 1+1=2$, I know 1+1=2, $I really know 1+1=2.$
+    This is in text mode, $This is in math mode,$ $This\ is\ in\ math\
+in\ mode.$
+    Now look at it $$2-1=1$$ I DO know more than you.
+    \subsection{Second subsection}
+    I don't like this subsection.
+    $\frac{2011}{2012}, x_1,x_2,\ldots,x_n, a^2+b^2=c^2, x_1^2+x_2^2+\
+dots+x_n^2=r^{100}, \sqrt{x+1}, \sqrt[3]{x^2+1}$
+
+$$\frac{2011}{2012}, x_1,x_2,\ldots,x_n, a^2+b^2=c^2, x_1^2+x_2^2+\
+dots+x_n^2=r^{100}, \sqrt{x+1}, \sqrt[3]{x^2+1}$$
+    \subsubsection{First subsubsection}
+    \paragraph{1st paragraph}
+    This is the first paragraph.
+    \subparagraph{1st subparagraph}
+        \begin{definition}
+         Definition is a environment for typing definition in \LaTeX{}.
+        \end{definition}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3cm]{draw_.pdf}
+  \caption{tt}
+  \label{fig2}
+\end{figure}
+    \subparagraph{2nd subparagraph}
+    This is the second subparagraph.
+    $|A|, \|A\|, \vec{a}, \overrightarrow{AB}, \tilde{x}, \widetilde{xyz
+}, \mathrm{sin}, \mathbb{RCZQ}, \mathbf{ABCD}$
+    \section{Second Section}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3cm]{circle.pdf}
+  \caption{tt}
+  \label{fig3}
+\end{figure}
+
+\begin{CJK}{UTF8}{gkai}
+这是一个楷体中文测试，处理简体字。
+\end{CJK}
+
+\begin{CJK}{UTF8}{gbsn}
+这是一个宋体中文测试，处理简体字。
+\end{CJK}
+
+\begin{CJK}{UTF8}{gbsnlp}
+中文测试，处理简体字。
+\end{CJK}
+
+\begin{CJK}{UTF8}{bkai}
+這是一個big5編碼的楷體中文測試，處理繁體文字。
+\end{CJK}
+
+\begin{CJK}{UTF8}{bsmi}
+這是一個个big5編碼的明體中文測試，處理繁體文字。
+\end{CJK}
+
+\end{document} 

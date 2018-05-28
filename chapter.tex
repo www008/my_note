@@ -1,0 +1,21 @@
+\documentclass[12pt]{book}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\titleformat{\chapter}[block]
+{}
+{\llap{\color{gray}\chapterNumber\thechapter
+\hspace{10pt}\vline}}
+{10pt}
+{\formatchaptertitle}
+
+\newcommand{\formatchaptertitle}[1]{%
+\parbox[t]{\dimexpr\textwidth-10pt}{\raggedright\LARGE\scshape#1}}
+
+\newcommand{\chapterNumber}{%
+\fontsize{50}{50}\usefont{U}{eur}{b}{n}}
+
+\begin{document}
+    \chapter{Long long lo}
+    aaaaaaaaaaaaaaaaaaaaaaa sss
+\end{document}

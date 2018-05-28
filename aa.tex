@@ -1,0 +1,37 @@
+% !Mode::"TeX:UTF-8"
+%\documentclass{article} % for xelatex
+%\usepackage{CTEX}
+%\begin{document}
+%这是一个CTEX的utf-8编码例子，{\kaishu 这里是楷体显示}，{\songti 这里是宋体显示}，{\heiti 这里是黑体显示}，{\fangsong 这里是仿宋显示}。
+%\end{document}
+
+%\documentclass[UTF8]{ctexart}
+%\begin{document}
+%中文文档类测试。你需要将所有源文件保存为UTF-8 编码。
+%\end{document}
+
+\documentclass{ctexart}
+%\usepackage[UTF8, heading = true]{ctex}
+\usepackage{hyperref}
+\hypersetup{unicode}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\pagestyle{headings}
+\ctexset{section={
+name={第,节},
+number=\arabic{section},
+}
+}
+\renewcommand\sectionmark[1]{%
+\markright{\CTEXifname{\CTEXthesection——}{}#1}}
+\begin{document}
+    \section{中文节}
+    {\songti 宋体文章 }
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3cm]{draw_.pdf}
+  \caption{心}
+\end{figure}
+
+\end{document}
+

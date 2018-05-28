@@ -1,0 +1,26 @@
+% !Mode::"TeX:UTF-8"
+\documentclass[UTF8]{article} %for pdflatex
+\usepackage{geometry}
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}	%word中默认的A4纸边距
+\usepackage{CJKutf8}
+%\usepackage{CJK}
+\usepackage[cmex10]{amsmath}
+%\usepackage[CJKbookmarks,pdftex]{hyperref}	%dvipdfm
+\usepackage[unicode,pdftex]{hyperref}	%dvipdfm
+\author{吴浩苗}
+\title{中文书名}
+\begin{document}
+    \begin{CJK}{UTF8}{gkai}
+    \maketitle
+	%\begin{CJK}{UTF8}{gkai}	%文件保存为utf8格式时需要，宋体
+		\section{1st 中文节}
+	\end{CJK}
+	\begin{CJK}{UTF8}{gbsn}	
+		第一节内容english。
+	\end{CJK}
+	is so big!
+	\section{2st English}
+
+
+	
+\end{document} 
