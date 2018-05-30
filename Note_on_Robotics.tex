@@ -1,14 +1,17 @@
 ﻿% !Mode::"TeX:UTF-8" % for pdfLaTeX
-\documentclass[a4paper,openany,oneside,sub4section]{book}
+\documentclass[a4paper,openany,twoside,sub4section]{book}
+
+%------ page -------------
 \special{papersize=210mm,297mm}
 \usepackage[left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm,headsep=1.5cm,footskip=1.75cm,
-            marginparwidth=1.1cm,marginparsep=2mm]{geometry} % 边注，marginparwidth区域宽度，marginparsep与正文间距离
+            marginparwidth=1.1cm,marginparsep=2mm]{geometry} %设置页边距的宏包,
+            %边注marginparwidth区域宽度，marginparsep与正文间距离
 \reversemarginpar %反转边注至页面左侧
 
 % ------ other -------------------
 \usepackage{graphicx}		% 调用插图宏包
 %\usepackage{subfigure}
-%\pagestyle{headings}
+
 %\usepackage{tocloft}
 %\usepackage{afterpage}      %后继页通用设置宏包
 \usepackage{amsfonts,amsmath,amssymb,amsthm}	% 调用公式宏包
@@ -20,7 +23,7 @@
 \linespread{1.5}			% 以將行距加大為1.5倍
 
 %------- CTex -----------
-\usepackage[UTF8, heading = true,zihao=5,]{ctex}
+\usepackage[UTF8, heading = true,zihao=5]{ctex}
 \ctexset{
     section = {format = \raggedright\Large\bfseries }
 }
@@ -28,12 +31,44 @@
 %------- hyperref -----------
 \usepackage{hyperref}
 %其中backref会与biblatex中的backref冲突
-\hypersetup{unicode,pdfstartview=FitH,colorlinks=true,CJKbookmarks=true,linkcolor=black} 
+\hypersetup{unicode,pdfstartview=FitH,colorlinks=true,CJKbookmarks=true,linkcolor=black}
 
 %---------- Color ----------
 \usepackage{xcolor}
 \definecolor{boxOrange}{RGB}{255,138,88}
-\definecolor{coverbackground}{HTML}{FFD700}
+
+%-------- cover --------------
+\usepackage[pages=some]{background}
+\backgroundsetup{scale=1,color=black,opacity=1.0,angle=0,hshift=2,vshift=2,placement=top,
+contents={\includegraphics[width=\paperwidth,height=\paperheight]{Note_on_Robotics/cover2.jpg}}}
+%\usepackage{eso-pic}
+%\newcommand\BackgroundPic{%
+%\put(0,0){%
+%\parbox[b][\paperheight]{\paperwidth}{%
+%\vfill
+%\centering
+%\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Note_on_Robotics/cover2.jpg}%
+%\vfill
+%}}}
+
+%--------- page head/foot ------
+% 如果没有twoside参数，奇偶页不生效;默认每章的第一页的page style是plain
+\usepackage{fancyhdr}   %设置页眉页脚的宏包
+
+\fancypagestyle{plain}{ %
+\fancyhf{}  %清空页眉页脚
+\fancyfoot[RO,LE]{$\cdot$\ \thepage\ $\cdot$} %奇数页脚右，偶数页脚左
+\renewcommand{\headrulewidth}{0pt} % 页眉与正文之间的水平线粗细
+\renewcommand{\footrulewidth}{0pt}}
+
+\pagestyle{fancy}        %使用fancy风格
+%\fancypagestyle{fancy}{ %有问题
+\fancyhf{} %
+\fancyhead[CO]{\footnotesize 机器人学笔记 }  %奇数页居中页眉
+\fancyhead[CE]{ \footnotesize \leftmark }    %偶数页居中页眉
+\fancyfoot[RO,LE]{$\cdot$\ \thepage\ $\cdot$} %奇数页脚右，偶数页脚左
+\renewcommand{\headrulewidth}{0.4pt} % 页眉与正文之间的水平线粗细
+\renewcommand{\footrulewidth}{0pt} 
 
 % ------- box ---------
 \usepackage[most]{tcolorbox}
@@ -65,7 +100,8 @@
 
 %--------- Bibliography ------------
 %\usepackage[backend=biber]{biblatex}
-\usepackage[backend=biber,style=numeric,hyperref=true,sorting=none,backref=true]{biblatex}
+\usepackage[backend=biber,style=numeric,hyperref=true,bibstyle=gb7714-2015,citestyle=gb7714-2015,
+            sorting=none,backref=true]{biblatex}
 \addbibresource{Note_on_Robotics.bib}
 
 %--------- Index ---------------------
@@ -80,20 +116,7 @@
 \date{2018.6-2018.12}
 
 \frontmatter
-\thispagestyle{empty} % 当前页不显示页码
-\begin{titlepage}
-	%\pagecolor{coverbackground}
-	\centering
-	\begin{center}
-		\vspace*{6cm}
-		{\par \Huge {\heiti 机器人学笔记 } }
-		\vspace{1cm}
-		{\par \LARGE {\lishu  吴浩苗} }
-		\vspace{12cm}
-        {\par \large 2018.6}
-	\end{center}
-\end{titlepage}
-%\afterpage{\nopagecolor}
+\include{Note_on_Robotics/cover}
 
 \setcounter{page}{1}
 \pagenumbering{Roman}		%罗马数字页码
@@ -101,58 +124,21 @@
 
 \mainmatter %表示文章的正文部分，在生成目录后将从第一页开始
 
-%\setlength{\cftchapindent}{3pt}
-%\setlength{\cftsecindent}{3pt}
-%\setlength{\cftsubsecindent}{3pt}
 \setcounter{page}{1}
 \pagenumbering{arabic}
 \part{数学导论}
-\cleardoublepage
-    \begin{tip} “数学，是上帝用来书写宇宙的语言。”——牛顿 \end{tip}
+    \include{Note_on_Robotics/chap1}       %第1章
+    \include{Note_on_Robotics/chap2}       %第2章
+    \include{Note_on_Robotics/chap3}       %第3章
 
-	\chapter{矢量空间}
-\begin{summary}
-    对单个事物的多维度描述，可构成一个维度空间，而事物就变成了空间\footnote{此空间可以是连续的，也可以是离散的。}中的一个点。\footnotemark[1]
-\end{summary}
-
-		\section{标量\&矢量}
-            \subsection{点\&空间}
-                \subsubsection{点}
-{\par 一切控制的基础是数学描述，所以构建机器人及其控制的核心是数学建模。\footnote{数学建模并不容易。} }
-
-\begin{remark}
-  Attension: 一段注释很 \emph{重要}。可在此多些点！ 
-  \index{注意点}
-\end{remark}
-
-
-	\chapter{刚体变换}
-		\section{刚体}
-        刚体\footnote{现实生活中不存在绝对的刚体。}
-        参考书  \cite{Latexrumen, Hartley2004}
-	\chapter{速度运动学}
-		\section{选择题}
 \part{建模\&控制}
 	\chapter{数学建模}
-		\section{选择题}
 	\chapter{系统控制}
-		\section{选择题}
 	\chapter{实践\&应用}
-		\section{选择题}
 
 \backmatter
-% bibliography, glossary and index would go here.
 %\nocite{*}
-\printbibliography[title={参考资料}]
-
+\printbibliography[title={参考文献}]    % bibliography
 \printindex %打印索引
 
-%\newpage
-%\include{cover}			%调入封面子源文件cover.tex
-%\pagenumbering{Roman}		%罗马数字页码
-%\include{abstract}			%调入摘要子源文件abstract.tex
-%\pagenumbering{arabic}		%阿拉伯数字页码
-%\include{contents}			%调入创建目录子源文件contents.tex
-%\pagenumbering{arabic}
-
-\end{document} 
+\end{document}
